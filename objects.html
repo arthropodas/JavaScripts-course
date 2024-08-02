@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>objects</title>
+  </head>
+  <script>
+    const products={
+        name:"asif",
+        age:23
+
+
+    }
+    products.place = "pattambi"
+
+    console.log(products)
+    console.log(typeof products)
+    console.log(typeof products.age)
+    const product2 = {
+    name:'sockes',
+    ['delivery-date']: '1 day',
+    rating:{
+        stars:5
+    },
+    fun: function function1(){
+        console.log("this is a function 1")
+    }
+
+}
+console.log(product2['delivery-date'])
+console.log(product2.rating.stars)
+console.log("calling function from product 2 ", product2.fun)
+product2.fun()
+
+
+
+  </script>
+
+      
+
+</html>

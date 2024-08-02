@@ -1,124 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Rock paper Scissor game</title>
-  </head>
-  <body>
-    <h1>Rock paper Scissor game</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors Game</title>
+  <style>
+    button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Rock Paper Scissors Game</h1>
 
-    <button
-      onclick="
-    const randomNumber = Math.random()
-    let  computerMove =''
-    let result = ''
-    if(randomNumber >0 && randomNumber<1/3){
-        computerMove = 'rock'
-    }
-    else if(randomNumber >1/3 && randomNumber<2/3){
-        computerMove = 'paper'
-        
-    }
-    else {
-        computerMove = 'scissor'
-    }
-    
-    if (computerMove === 'scissor'){
-        result = 'win'
-    }
-    else if(computerMove =='rock' )
-    result = 'Tie'
-    else {
-        result = 'lose'
-    }
+  <button onclick="play('rock')">Rock</button>
+  <button onclick="play('paper')">Paper</button>
+  <button onclick="play('scissors')">Scissors</button>
+  <button
+  onclick="
+  score.win = 0;
+  score.lost =0;
+  score.tie = 0;">
+    Reset
+  </button>
 
-  alert(`your move rock computer move : ${computerMove} : you ${result}`)
-
-
-    "
-    >
-      rock
-    </button>
-    <button
-      onclick="
-    const randomNumber = Math.random()
-    let  computerMove =''
-    let result = ''
-    if(randomNumber >0 && randomNumber<1/3){
-        computerMove = 'rock'
-    }
-    else if(randomNumber >1/3 && randomNumber<2/3){
-        computerMove = 'paper'
-        
-    }
-    else {
-        computerMove = 'scissor'
-    }
-    
-    if (computerMove === 'rock'){
-        result = 'win'
-    }
-    else if(computerMove =='paper' )
-    result = 'Tie'
-    else {
-        result = 'lose'
-    }
-
-  alert(`your move paper computer move : ${computerMove} : you ${result}`)
-
-
-    "
-    >
-      paper
-    </button>
-    <button
-      onclick="
-    const randomNumber = Math.random()
-    let  computerMove =''
-    let result = ''
-    if(randomNumber >0 && randomNumber<1/3){
-        computerMove = 'rock'
-    }
-    else if(randomNumber >1/3 && randomNumber<2/3){
-        computerMove = 'paper'
-        
-    }
-    else {
-        computerMove = 'scissor'
-    }
-    
-    if (computerMove === 'paper'){
-        result = 'win'
-    }
-    else if(computerMove =='scissor' )
-    result = 'Tie'
-    else {
-        result = 'lose'
-    }
-
-  alert(`your move scissor computer move : ${computerMove} : you ${result}`)
-
-
-    "
-    >
-      scissor
-    </button>
-
-    <script>
-      false;
-      true;
-      console.log(3 > 5);
-      console.log("type", typeof "3>5 ");
-      console.log("type", typeof 3 > 5);
-      let age = 17;
-      console.log("age", age);
-      if (age >= 18) {
-        console.log("congrats");
-        console.log("you can drive");
-      } else if (age >= 17) {
-        console.log("almost there");
-      } else {
-        console.log("sorry, you are too young");
+  <script>
+     const score={
+        win :0,
+        lose:0,
+        tie:0
       }
-    </script>
-  </body>
+    function play(userMove) {
+      const randomNumber = Math.random();
+      let computerMove = '';
+      let result = '';
+     
+
+      if (randomNumber < 1 / 3) {
+        computerMove = 'rock';
+      } else if (randomNumber < 2 / 3) {
+        computerMove = 'paper';
+      } else {
+        computerMove = 'scissors';
+      }
+
+      if (userMove === computerMove) {
+        result = 'Tie';
+     
+      } else if (userMove === 'rock' && computerMove === 'scissors' || userMove === 'paper' && computerMove === 'rock' ||userMove=='scissors' && computerMove ==='paper'
+      ) {
+        result = 'Win';
+      
+      } else {
+        result = 'Lose';
+  
+      }
+
+
+      if(result === 'Win'){
+        score.win++;
+      }
+      else if(result === 'Lose'){
+
+        score.lose++;
+      }
+      else{
+        score.tie++
+      }
+
+      alert(`Your move: ${userMove}. Computer move: ${computerMove}. You ${result}.\n Win:${score.win} lose:${score.lose} tie:${score.tie}`);
+    }
+
+    // Example of console log debugging (can be removed or modified)
+    console.log(3 > 5); // false
+    console.log("type", typeof "3>5 "); // string
+    console.log("type", typeof 3 > 5); // boolean
+    let age = 17;
+    console.log("age", age);
+    if (age >= 18) {
+      console.log("Congrats, you can drive.");
+    } else if (age >= 17) {
+      console.log("Almost there.");
+    } else {
+      console.log("Sorry, you are too young.");
+    }
+  </script>
+</body>
 </html>
